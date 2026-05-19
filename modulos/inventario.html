@@ -28,73 +28,58 @@
     </div>
     </nav>
     <hr />
-    <table class="table">
-      <thead>
-        <tr>
-          <th><abbr title="nom_producto">Nombre del producto</abbr></th>
-          <th><abbr title="cod_producto">Codigo del producto</abbr></th>
-          <th><abbr title="Categoria">Categoria</abbr></th>
-          <th><abbr title="prec_unitario">Precio</abbr></th>
-          <th><abbr title="Descripciòn">Descripciòn</abbr></th>
-          <th><abbr title="Presentaciòn">Presentaciòn</abbr></th>
-          <th><abbr title="Marca">Marca</abbr></th>
-          <th><abbr title="Precio">Peso Unitario</abbr></th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <th>Speed Max</th>
-          <td>2121343456</td>           
-          <td>Bebida Energizante</td>
-          <td>$2.500</td>
-          <td>Bebida gaseosa refrescante</td>
-          <td>Lata</td>
-          <td>Postobon</td>
-          <td>120 ml</td>          
-        </tr>
-        <tr>
-          <th>Crumbl Cookies</th>
-          <td>2121345456</td>           
-          <td>Reposteria</td>
-          <td>$12.500</td>
-          <td>Textura rica y crujiente</td>
-          <td>Caja</td>
-          <td>Estado Unidense</td>
-          <td>150 g</td>
-        </tr>
-            <tr>
-            <th>Arequipe</th>
-            <td>2121354565</td>           
-            <td>Reposteria</td>
-            <td>$5.000</td>
-            <td>Dulce tradicional de leche</td>
-            <td>Frasco</td>
-            <td>Alpina</td>
-            <td>250 g</td>  
-        </tr>
-        <tr>
-            <th>Bocadillo</th>
-            <td>2121314554</td>           
-            <td>Dulces Tipicos</td>
-            <td>$3.500</td>
-            <td>Dulce de guayaba tradicional</td>
-            <td>Bloque</td>
-            <td>Velez</td>
-            <td>200 g</td>
-        </tr>
-        <tr>
-            <th>Cafe De Colombia</th>
-            <td>2121135465</td>           
-            <td>Bebida</td>
-            <td>$15.000</td>
-            <td>Café suave y aromático</td>
-            <td>Bolsa</td>
-            <td>Juan Valdez</td>
-            <td>500 g</td>
-        </tr>
-  
-      </tbody>
-    </table>
+    <section class="section">
+      <div class="container">
+        <form class="box" action="#" method="post">
+          <div class="field">
+            <label class="label">Nombre del producto</label>
+            <div class="control">
+              <input class="input" type="text" name="nombre_producto" placeholder="Ingrese el nombre del producto" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Precio</label>
+            <div class="control">
+              <input class="input" type="text" name="precio" placeholder="Ingrese el precio" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Codigo</label>
+            <div class="control">
+              <input class="input" type="text" name="codigo" placeholder="Ingrese el código" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Marca</label>
+            <div class="control">
+              <input class="input" type="text" name="marca" placeholder="Ingrese la marca" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Cantidad</label>
+            <div class="control">
+              <input class="input" type="number" name="cantidad" placeholder="Ingrese la cantidad" min="0" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Categoria</label>
+            <div class="control">
+              <input class="input" type="text" name="categoria" placeholder="Ingrese la categoría" required />
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Unidad de medida</label>
+            <div class="control">
+              <input class="input" type="text" name="unidad_medida" placeholder="Ingrese la unidad de medida" required />
+            </div>
+          </div>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit">Enviar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
