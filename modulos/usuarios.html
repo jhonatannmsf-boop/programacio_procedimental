@@ -27,38 +27,77 @@
       </div>
     </nav>
 
-    <h1>USUARIOS</h1>
     <hr>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Usuarios</h1>
 
-    <form>
-        <label>Nombre completo:</label><br>
-        <input type="text" id="nombre_completo" name="nombre_completo"><br><br>
+        <form>
+          <div class="field">
+            <label class="label">Nombre completo</label>
+            <div class="control">
+              <input class="input" type="text" id="nombre_completo" name="nombre_completo" placeholder="Ingrese el nombre completo" required>
+            </div>
+          </div>
 
-        <label>Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input" type="email" id="email" name="email" placeholder="Ingrese el email" required>
+            </div>
+          </div>
 
-        <label>Número de celular:</label><br>
-        <input type="tel" id="numero_celular" name="numero_celular"><br><br>
+          <div class="field">
+            <label class="label">Número de celular</label>
+            <div class="control">
+              <input class="input" type="tel" id="numero_celular" name="numero_celular" placeholder="Ingrese el número de celular" required>
+            </div>
+          </div>
 
-        <label>Género:</label><br>
-        <select id="genero" name="genero">
-            <option value="">Seleccione</option>
-            <option value="masculino">Masculino</option>
-            <option value="femenino">Femenino</option>
-            <option value="otro">Otro</option>
-        </select><br><br>
+          <div class="field">
+            <label class="label">Género</label>
+            <div class="control">
+              <div class="select is-fullwidth">
+                <select id="genero" name="genero" required>
+                  <option value="">Seleccione</option>
+                  <option value="masculino">Masculino</option>
+                  <option value="femenino">Femenino</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-        <label>Fecha de nacimiento:</label><br>
-        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento"><br><br>
+          <div class="field">
+            <label class="label">Fecha de nacimiento</label>
+            <div class="control">
+              <input class="input" type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+            </div>
+          </div>
 
-        <label>Dirección:</label><br>
-        <input type="text" id="direccion" name="direccion"><br><br>
+          <div class="field">
+            <label class="label">Dirección</label>
+            <div class="control">
+              <input class="input" type="text" id="direccion" name="direccion" placeholder="Ingrese la dirección" required>
+            </div>
+          </div>
 
-        <label>Contraseña:</label><br>
-        <input type="password" id="contrasena" name="contrasena"><br><br>
+          <div class="field">
+            <label class="label">Contraseña</label>
+            <div class="control">
+              <input class="input" type="password" id="contrasena" name="contrasena" placeholder="Ingrese la contraseña" required>
+            </div>
+          </div>
 
-        <input type="submit" id="enviar" value="Enviar">
-    </form>
-<script src="js/usuarios.js"></script>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit" id="guardar_usuario">Guardar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../js/usuarios.js"></script>
 </body>
 </html>

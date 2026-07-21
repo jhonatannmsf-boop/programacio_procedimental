@@ -1,37 +1,106 @@
-let nombre = document.getElementById("nombre_completo").value;
-let email = document.getElementById("email").value;
-let numero_celular = document.getElementById("numero_celular").value;
-let genero = document.getElementById("genero").value;
-let fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
-let direccion = document.getElementById("direccion").value;
-let contrasena = document.getElementById("contrasena").value;
-
 function ValidarDatos() {
-    if (nombre === "" || email === "" || numero_celular === "" || genero === "" || fecha_nacimiento === "" || direccion === "" || contrasena === "") {
-        console.log("Por favor, complete todos los campos.");   
+    let nombre = document.getElementById("nombre_completo").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let numero_celular = document.getElementById("numero_celular").value.trim();
+    let genero = document.getElementById("genero").value.trim();
+    let fecha_nacimiento = document.getElementById("fecha_nacimiento").value.trim();
+    let direccion = document.getElementById("direccion").value.trim();
+    let contrasena = document.getElementById("contrasena").value.trim();
+
+    if (!nombre || !email || !numero_celular || !genero || !fecha_nacimiento || !direccion || !contrasena) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Campos Incompletos",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return;
     }
-    if (nombre != /[a-zA-Z]/) {
-        console.log("Debe ser un nombre válido");
+
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(nombre)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser un nombre válido",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (email != /[a-zA-Z]/) {
-        console.log("Debe ser un email válido");
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser un email válido",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (numero_celular != /[0-9]/) {
-        console.log("Debe ser un número de celular válido");
+
+    if (!/^\+?\d{1,3}[\s-]?\d{6,10}$/.test(numero_celular)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser un número de celular válido",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (fecha_nacimiento == /[a-zA-Z]/) {
-        console.log("Debe ser una fecha de nacimiento válida");
+
+    if (!/^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/.test(fecha_nacimiento)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser una fecha de nacimiento válida",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (direccion != /[a-zA-Z0-9]/) {
-        console.log("Debe ser una dirección válida");
+
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(direccion)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser una dirección válida",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (contrasena != /[a-zA-Z0-9]/) {
-        console.log("Debe ser una contraseña válida");
+
+    if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(contrasena)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser una contraseña válida",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (genero != /[a-zA-Z]/) {
-        console.log("Debe ser un género válido");
+
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(genero)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser un género válido",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    else {
-        console.log("ingrese todos los campos correctamente");
-    }
+
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Datos Validados Correctamente",
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
+document.getElementById("guardar_usuario").onclick = ValidarDatos;

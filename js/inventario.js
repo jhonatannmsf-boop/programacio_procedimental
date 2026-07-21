@@ -1,31 +1,95 @@
-let producto = document.getElementById("nombre_producto").value;
-let precio = document.getElementById("precio").value;
-let codigo = document.getElementById("codigo").value;
-let marca = document.getElementById("marca").value;
-let cantidad = document.getElementById("cantidad").value;
-let categoria = document.getElementById("categoria").value;
-let unidad_medida = document.getElementById("unidad_medida").value;
-
 function ValidarDatos() {
-    if (producto === "" || precio === "" || codigo === "" || cantidad === "" || categoria === "" || unidad_medida === "") {
-        console.log("Por favor, complete todos los campos.");       
+    let producto = document.getElementById("nombre_producto").value;
+    let precio = document.getElementById("precio").value;
+    let codigo = document.getElementById("codigo").value;
+    let marca = document.getElementById("marca").value;
+    let cantidad = document.getElementById("cantidad").value;
+    let categoria = document.getElementById("categoria").value;
+    let unidad_medida = document.getElementById("unidad_medida").value;
+
+    if (!producto || !precio || !codigo || !marca || !cantidad || !categoria || !unidad_medida) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Campos Incompletos",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return;
     }
-    if (precio == /[a-zA-Z]/) {
-        console.log("Debe ser numerico el Precio");
+
+    if (!/^\d+(\.\d{1,2})?$/.test(precio)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser un precio válido",
+            showConfirmButton: false,
+            timer: 1500
+        });
+      
     }
-    if (codigo == /[a-zA-Z]/) {
-        console.log("Solo Debe Contener Numeros El codigo");
+
+    if (!/^[A-Za-z0-9-]+$/.test(codigo)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Formato de Código Incorrecto",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (cantidad == /[a-zA-Z]/) {
-        console.log("Debe ser numerico la cantidad");
+
+    if (!/^\d+$/.test(cantidad)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Formato de Cantidad Incorrecto",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (unidad_medida != /[a-zA-Z]/) {
-        console.log("Debe ser texto la Unidad de Medida");
+
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(marca)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Formato de Marca Incorrecto",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    if (categoria != /[a-zA-Z]/) {
-        console.log("Debe ser texto la Categoria");
+
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(unidad_medida)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Formato de Unidad de Medida Incorrecto",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
-    else {
-        console.log("ingrese todos los campos correctamente");
+
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(categoria)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Formato de Categoria Incorrecto",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        
     }
+
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Datos Validados Correctamente",
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
+document.getElementById("guardar_producto").onclick = ValidarDatos;

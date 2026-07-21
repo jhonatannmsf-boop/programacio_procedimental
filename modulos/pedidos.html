@@ -27,34 +27,70 @@
       </div>
     </nav>
     
-    <h1>pedidos</h1>
     <hr>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Pedidos</h1>
 
-    <form>
-        <label>Nombre completo:</label><br>
-        <input type="text" id="nombre_completo" name="nombre_completo"><br><br>
+        <form>
+          <div class="field">
+            <label class="label">Nombre completo</label>
+            <div class="control">
+              <input class="input" type="text" id="nombre_completo" name="nombre_completo" placeholder="Ingrese el nombre completo" required>
+            </div>
+          </div>
 
-        <label>Referencias:</label><br>
-        <input type="text" id="referencias" name="referencias"><br><br>
+          <div class="field">
+            <label class="label">Referencias</label>
+            <div class="control">
+              <input class="input" type="text" id="referencias" name="referencias" placeholder="Ingrese las referencias" required>
+            </div>
+          </div>
 
-        <label>Pedido:</label><br>
-        <input type="text" id="pedido" name="pedido"><br><br>
+          <div class="field">
+            <label class="label">Pedido</label>
+            <div class="control">
+              <input class="input" type="text" id="pedido" name="pedido" placeholder="Ingrese el pedido" required>
+            </div>
+          </div>
 
-        <label>Email:</label><br>
-        <input type="email" id="email" name="email"><br><br>
+          <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+              <input class="input" type="email" id="email" name="email" placeholder="Ingrese el email" required>
+            </div>
+          </div>
 
-        <label>Número de celular:</label><br>
-        <input type="tel" id="numero_celular" name="numero_celular"><br><br>
+          <div class="field">
+            <label class="label">Número de celular</label>
+            <div class="control">
+              <input class="input" type="tel" id="numero_celular" name="numero_celular" placeholder="Ingrese el número de celular" required>
+            </div>
+          </div>
 
+          <div class="field">
+            <label class="label">Dirección</label>
+            <div class="control">
+              <input class="input" type="text" id="direccion" name="direccion" placeholder="Ingrese la dirección" required>
+            </div>
+          </div>
 
-        <label>Dirección:</label><br>
-        <input type="text" id="direccion" name="direccion"><br><br>
+          <div class="field">
+            <label class="label">Método de pago</label>
+            <div class="control">
+              <input class="input" type="password" id="metodo_pago" name="metodo_pago" placeholder="Ingrese el método de pago" required>
+            </div>
+          </div>
 
-        <label>Metodo de Pago:</label><br>
-        <input type="password" id="metodo_pago" name="contrasena"><br><br>
-
-        <input type="submit" value="Enviar">
-    </form>
-    <script src="js/pedidos.js"></script>
+          <div class="field is-grouped">
+            <div class="control">
+              <button class="button is-link" type="submit" id="guardar_pedido">Enviar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/pedidos.js"></script>
 </body>
 </html>
