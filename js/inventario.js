@@ -18,6 +18,17 @@ function ValidarDatos() {
         return;
     }
 
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(producto)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Formato de Producto Incorrecto",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return;
+    }
+
     if (!/^\d+(\.\d{1,2})?$/.test(precio)) {
         Swal.fire({
             position: "top-end",
@@ -26,7 +37,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-      
+        return;
     }
 
     if (!/^[A-Za-z0-9-]+$/.test(codigo)) {
@@ -37,7 +48,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^\d+$/.test(cantidad)) {
@@ -48,7 +59,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(marca)) {
@@ -59,7 +70,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(unidad_medida)) {
@@ -70,26 +81,27 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(categoria)) {
         Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "Formato de Categoria Incorrecto",
+            title: "Formato de Categoría Incorrecto",
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Datos Validados Correctamente",
+        title: "Datos Guardados Correctamente",
         showConfirmButton: false,
         timer: 1500
     });
 }
+
 document.getElementById("guardar_producto").onclick = ValidarDatos;

@@ -1,11 +1,11 @@
 function ValidarDatos() {
-    let nombre = document.getElementById("nombre_completo").value.trim();
-    let referencias = document.getElementById("referencias").value.trim();
-    let pedido = document.getElementById("pedido").value.trim();
-    let email = document.getElementById("email").value.trim();
-    let numero_celular = document.getElementById("numero_celular").value.trim();
-    let direccion = document.getElementById("direccion").value.trim();
-    let metodo_pago = document.getElementById("metodo_pago").value.trim();
+    let nombre = document.getElementById("nombre_completo").value;
+    let referencias = document.getElementById("referencias").value;
+    let pedido = document.getElementById("pedido").value;
+    let email = document.getElementById("email").value;
+    let numero_celular = document.getElementById("numero_celular").value;
+    let direccion = document.getElementById("direccion").value;
+    let metodo_pago = document.getElementById("metodo_pago").value;
 
     if (!nombre || !referencias || !pedido || !email || !numero_celular || !direccion || !metodo_pago) {
         Swal.fire({
@@ -26,7 +26,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(referencias)) {
@@ -37,7 +37,18 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
+    }
+
+    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(pedido)) {
+        Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: "Debe ser un pedido válido",
+            showConfirmButton: false,
+            timer: 1500
+        });
+        return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -48,7 +59,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^\+?\d{1,3}[\s-]?\d{6,10}$/.test(numero_celular)) {
@@ -59,10 +70,10 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
-    if (/^\d+$/.test(direccion)) {
+    if (!/^[a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ#.,\-\s]+$/.test(direccion)) {
         Swal.fire({
             position: "top-end",
             icon: "error",
@@ -70,7 +81,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(metodo_pago)) {
@@ -81,15 +92,16 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Datos Validados Correctamente",
+        title: "Datos Guardados Correctamente",
         showConfirmButton: false,
         timer: 1500
     });
 }
+
 document.getElementById("guardar_pedido").onclick = ValidarDatos;

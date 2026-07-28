@@ -26,7 +26,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
@@ -37,7 +37,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^\+?\d{1,3}[\s-]?\d{6,10}$/.test(numero_celular)) {
@@ -48,21 +48,21 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
-    if (!/^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/.test(fecha_nacimiento)) {
+    if (!fecha_nacimiento) {
         Swal.fire({
             position: "top-end",
             icon: "error",
-            title: "Debe ser una fecha de nacimiento válida",
+            title: "Debe seleccionar una fecha de nacimiento",
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
-    if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(direccion)) {
+    if (!/^[a-zA-Z0-9ÁÉÍÓÚÑáéíóúñ#.,\-\s]+$/.test(direccion)) {
         Swal.fire({
             position: "top-end",
             icon: "error",
@@ -70,7 +70,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/.test(contrasena)) {
@@ -81,7 +81,7 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     if (!/^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(genero)) {
@@ -92,15 +92,16 @@ function ValidarDatos() {
             showConfirmButton: false,
             timer: 1500
         });
-        
+        return;
     }
 
     Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Datos Validados Correctamente",
+        title: "Datos Guardados Correctamente",
         showConfirmButton: false,
         timer: 1500
     });
 }
+
 document.getElementById("guardar_usuario").onclick = ValidarDatos;
